@@ -1,0 +1,32 @@
+{
+  "name": "collaborative-canvas",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server/server.js",
+    "client": "npx serve client -p 3000 --cors"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "react-scripts": "^5.0.1",
+    "serve": "^14.2.1",
+    "socket.io": "^4.7.2",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=8"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "babel-eslint": "^10.1.0"
+  },
+  "extends": [
+    "airbnb",
+    "prettier"
+  ]
+}

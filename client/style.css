@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f6f9;
+  overflow: hidden;
+  color: #222;
+}
+
+#toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+
+  z-index: 1000;
+}
+
+#toolbar input,
+#toolbar select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #d6dbe1;
+  font-size: 14px;
+  background: #fff;
+}
+
+#toolbar input:focus,
+#toolbar select:focus {
+  outline: none;
+  border-color: #4c8bf5;
+}
+
+button {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #4c8bf5;
+  color: #fff;
+  transition: all 0.18s ease;
+}
+
+button:hover:not(:disabled) {
+  background: #3a73db;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button:disabled {
+  background: #bfc6d1;
+  cursor: not-allowed;
+}
+
+#brush {
+  background: #8f9093;
+  color: #ffffff;
+}
+
+#brush i {
+  color: inherit;
+}
+
+#brush.active {
+  background: #1e3a8a;
+  color: #ffffff;
+}
+
+#brush:hover {
+  background: #355fcf;
+}
+
+#eraser {
+  background: #6b7280;
+  color: #ffffff;
+}
+
+#eraser i {
+  color: inherit;
+}
+
+#eraser.active {
+  background: #dc2626;
+}
+
+
+#undo,
+#redo {
+  background: #3bb273;
+}
+
+#undo:hover,
+#redo:hover {
+  background: #2ea164;
+}
+
+#leaveRoom {
+  background: #ff4242;
+}
+
+#leaveRoom:hover {
+  background: #e63256;
+}
+
+#strokeWidth {
+  width: 90px;
+  cursor: pointer;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+#usersOnline {
+  margin-left: auto;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+}
+
+#canvas {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+
+  background: #ffffff;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+body.eraser-active #canvas {
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  #toolbar {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  #toolbar input {
+    flex: 1;
+  }
+
+  #usersOnline {
+    width: 100%;
+    text-align: right;
+  }
+}
