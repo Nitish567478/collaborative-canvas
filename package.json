@@ -1,6 +1,7 @@
 {
   "name": "collaborative-canvas",
   "version": "1.0.0",
+  "license": "MIT",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js"
