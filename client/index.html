@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Collaborative Canvas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
 </head>
 <body>
 
+  <!-- ===== TOP TOOLBAR ===== -->
   <div id="toolbar">
     <input id="userName" placeholder="Your Name">
     <input id="roomId" placeholder="Room ID">
+
     <button id="joinRoom">
       <i class="bi bi-box-arrow-in-right"></i>
       Join
     </button>
 
-
-    <!-- <select id="roomList">
-      <option value="">-- Available Rooms --</option>
-    </select> -->
     <button id="leaveRoom">
       <i class="bi bi-box-arrow-left"></i>
       Leave
@@ -31,13 +30,8 @@
       <option value="#ff0000">Red</option>
       <option value="#00aa00">Green</option>
       <option value="#0000ff">Blue</option>
-      <option value="#FFC0CB">Pink</option>
-      <option value="#FF00FF">Magenta</option>
-      <option value="#4B0082">Indigo</option>
+      <option value="#ffa500">Orange</option>
       <option value="#800080">Purple</option>
-      <option value="#FFA500">Orange</option>
-      <option value="#ffff00">Yellow</option>
-      <option value="#ff00ff">Magenta</option>
     </select>
 
     <input id="strokeWidth" type="range" min="1" max="30" value="5">
@@ -47,32 +41,78 @@
       Pen
     </button>
 
-
     <button id="eraser">
       <i class="bi bi-eraser"></i>
       Eraser
     </button>
 
-
     <button id="undo">
-      <svg viewBox="0 0 24 24" class="icon">
-        <path d="M12 5v-3L7 7l5 5V9c3.3 0 6 2.7 6 6 0 1.3-.4 2.5-1.1 3.5l1.5 1.3C19.4 18.4 20 16.8 20 15c0-4.4-3.6-8-8-8z"/>
-      </svg>
+      <i class="bi bi-arrow-counterclockwise"></i>
       Undo
     </button>
 
     <button id="redo">
-      <svg viewBox="0 0 24 24" class="icon">
-        <path d="M12 5c-4.4 0-8 3.6-8 8 0 1.8.6 3.4 1.6 4.8l1.5-1.3C6.4 15.5 6 14.3 6 13c0-3.3 2.7-6 6-6v3l5-5-5-5v3z"/>
-      </svg>
+      <i class="bi bi-arrow-clockwise"></i>
       Redo
     </button>
 
     <div id="usersOnline">Users: 0</div>
   </div>
 
+  <!-- ===== SHAPES PANEL (MS WORD STYLE) ===== -->
+  <div id="shapesPanel">
+    <div class="shapes-title">Shapes</div>
+
+    <button id="shape-rect" class="shape-btn">
+      <i class="bi bi-square"></i>
+      Rectangle
+    </button>
+
+    <button id="shape-square" class="shape-btn">
+      <i class="bi bi-stop"></i>
+      Square
+    </button>
+
+    <button id="shape-circle" class="shape-btn">
+      <i class="bi bi-circle"></i>
+      Circle
+    </button>
+
+    <button id="shape-triangle" class="shape-btn">
+      <i class="bi bi-triangle"></i>
+      Triangle
+    </button>
+
+    <button id="shape-line" class="shape-btn">
+      <i class="bi bi-slash-lg"></i>
+      Line
+    </button>
+
+    <button id="shape-text" class="shape-btn">
+      <i class="bi bi-fonts"></i>
+      Text
+    </button>
+
+    <button id="shape-image" class="shape-btn">
+      <i class="bi bi-image"></i>
+      Image
+      <input
+        type="file"
+        id="imageInput"
+        accept="image/*"
+        style="display:none"
+      />
+
+    </button>
+  </div>
+
+  <!-- ===== CANVAS ===== -->
   <canvas id="canvas"></canvas>
 
+  <!-- IMAGE INPUT -->
+  <input type="file" id="imageInput" accept="image/*" hidden>
+
+  <!-- SCRIPTS -->
   <script src="/socket.io/socket.io.js"></script>
   <script src="websocket.js"></script>
   <script src="canvas.js"></script>

@@ -23,7 +23,6 @@ body {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(18px);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
-
   z-index: 1000;
 }
 
@@ -52,6 +51,9 @@ button {
   background: #4c8bf5;
   color: #fff;
   transition: all 0.18s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 button:hover:not(:disabled) {
@@ -70,35 +72,19 @@ button:disabled {
 
 #brush {
   background: #8f9093;
-  color: #ffffff;
-}
-
-#brush i {
-  color: inherit;
 }
 
 #brush.active {
   background: #1e3a8a;
-  color: #ffffff;
-}
-
-#brush:hover {
-  background: #355fcf;
 }
 
 #eraser {
   background: #6b7280;
-  color: #ffffff;
-}
-
-#eraser i {
-  color: inherit;
 }
 
 #eraser.active {
   background: #dc2626;
 }
-
 
 #undo,
 #redo {
@@ -120,27 +106,11 @@ button:disabled {
 
 #strokeWidth {
   width: 90px;
-  cursor: pointer;
 }
-
-.icon {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-  margin-right: 6px;
-  vertical-align: middle;
-}
-
-button {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
 
 #usersOnline {
   margin-left: auto;
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 600;
   color: #333;
   white-space: nowrap;
@@ -150,29 +120,84 @@ button {
   width: 100vw;
   height: 100vh;
   display: block;
-
   background: #ffffff;
   cursor: crosshair;
   touch-action: none;
 }
 
-body.eraser-active #canvas {
-  cursor: not-allowed;
+/* ===== SHAPES PANEL ===== */
+
+#shapesPanel {
+  position: fixed;
+  top: 80px;
+  left: 12px;
+  width: 160px;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 900;
 }
 
-@media (max-width: 768px) {
+.shapes-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.shape-btn {
+  background: #eef2f7;
+  color: #333;
+  justify-content: flex-start;
+}
+
+.shape-btn i {
+  font-size: 16px;
+}
+
+.shape-btn:hover {
+  background: #dbe4ff;
+  color: #1e3a8a;
+}
+
+.shape-btn.active {
+  background: #4c8bf5;
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Mobile */
+@media (max-width: 760px) and (min-width: 320px) {
+  #canvas {
+    width: 430vw;    /* Mobile ka size */
+    height: 430vh;
+  }
+}
+
+
+/* Tablet Only */
+@media (max-width: 768px) and (max-width: 1024px) {
+  #canvas {
+    width: 180vw;    
+    height: 300vh;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
   #toolbar {
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 14px;
-  }
-
-  #toolbar input {
-    flex: 1;
   }
 
   #usersOnline {
     width: 100%;
     text-align: right;
+    margin-top: 6px;
   }
 }
