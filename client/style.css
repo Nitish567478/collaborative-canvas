@@ -173,7 +173,7 @@ button:disabled {
 /* ===== RESPONSIVE ===== */
 
 /* Mobile */
-@media (max-width: 760px) and (min-width: 320px) {
+@media (max-width: 768px) and (min-width: 320px) {
   #canvas {
     width: 430vw;    /* Mobile ka size */
     height: 430vh;
@@ -182,9 +182,9 @@ button:disabled {
 
 
 /* Tablet Only */
-@media (max-width: 768px) and (max-width: 1024px) {
+@media (max-width: 769px) and (max-width: 1024px) {
   #canvas {
-    width: 180vw;    
+    width: 380vw;    
     height: 300vh;
   }
 }
