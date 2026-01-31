@@ -1,4 +1,3 @@
-// ===== DOM ELEMENTS =====
 const joinRoomBtn = document.getElementById("joinRoom");
 const leaveRoomBtn = document.getElementById("leaveRoom");
 
@@ -14,7 +13,6 @@ const eraserBtn = document.getElementById("eraser");
 const undoBtn = document.getElementById("undo");
 const redoBtn = document.getElementById("redo");
 
-// Shapes
 const rectBtn = document.getElementById("shape-rect");
 const squareBtn = document.getElementById("shape-square");
 const circleBtn = document.getElementById("shape-circle");
@@ -46,7 +44,7 @@ function clearActiveTools() {
   ].forEach(btn => btn && btn.classList.remove("active"));
 }
 
-/* ===== AUTO REJOIN ON RELOAD (INTENTIONAL) ===== */
+/* ===== AUTO REJOIN ON RELOAD ===== */
 window.addEventListener("load", () => {
   const savedName = sessionStorage.getItem("userName");
   const savedRoom = sessionStorage.getItem("roomId");
@@ -81,7 +79,7 @@ joinRoomBtn.onclick = () => {
   joinRoom(roomId, name);
 };
 
-// ===== LEAVE ROOM (ONLY PLACE THAT CLEARS STATE) =====
+// ===== LEAVE ROOM =====
 leaveRoomBtn.onclick = () => {
   if (!window.currentRoom) {
     alert("You are not in any room.");
@@ -90,14 +88,13 @@ leaveRoomBtn.onclick = () => {
 
   socket.emit("LEAVE_ROOM", window.currentRoom);
 
-  // 🔥 CLEAR SESSION (THIS WAS MISSING)
+  // CLEAR SESSION 
   sessionStorage.removeItem("userName");
   sessionStorage.removeItem("roomId");
 
   window.currentRoom = null;
   window.currentUserName = null;
 
-  // Full reset
   location.reload();
 };
 
@@ -130,7 +127,7 @@ imageBtn.onclick = () => { clearActiveTools(); window.currentTool = "image"; ima
   clearActiveTools();
   window.currentTool = "image";
   imageBtn.classList.add("active");
-  imageInput.click(); // 🔥 open file picker
+  imageInput.click();
 };
  };
 

@@ -1,9 +1,7 @@
 const socket = io();
-
 window.allStrokes = [];
 
 /* ===== ROOM ACTIONS ===== */
-
 function joinRoom(roomId, userName) {
   window.allStrokes = [];
   redraw(window.allStrokes);
@@ -50,17 +48,4 @@ socket.on("REDO", stroke => {
   redraw(window.allStrokes);
 });
 
-/* ===== OPTIONAL: ROOM LIST (SAFE) ===== */
-
-socket.on("ROOM_LIST", rooms => {
-  const list = document.getElementById("roomList");
-  if (!list) return;
-
-  list.innerHTML = `<option value="">-- Available Rooms --</option>`;
-  rooms.forEach(r => {
-    const opt = document.createElement("option");
-    opt.value = r;
-    opt.textContent = r;
-    list.appendChild(opt);
-  });
-});
+ 

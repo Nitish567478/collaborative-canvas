@@ -14,7 +14,6 @@
   <div id="toolbar">
     <input id="userName" placeholder="Your Name">
     <input id="roomId" placeholder="Room ID">
-
     <button id="joinRoom">
       <i class="bi bi-box-arrow-in-right"></i>
       Join
@@ -35,7 +34,6 @@
     </select>
 
     <input id="strokeWidth" type="range" min="1" max="30" value="5">
-
     <button id="brush" class="active">
       <i class="bi bi-vector-pen"></i>
       Pen
@@ -59,7 +57,7 @@
     <div id="usersOnline">Users: 0</div>
   </div>
 
-  <!-- ===== SHAPES PANEL (MS WORD STYLE) ===== -->
+  <!-- ===== SHAPES PANEL ===== -->
   <div id="shapesPanel">
     <div class="shapes-title">Shapes</div>
 
@@ -106,13 +104,9 @@
     </button>
   </div>
 
-  <!-- ===== CANVAS ===== -->
   <canvas id="canvas"></canvas>
-
-  <!-- IMAGE INPUT -->
   <input type="file" id="imageInput" accept="image/*" hidden>
-
-  <!-- SCRIPTS -->
+  
   <script src="/socket.io/socket.io.js"></script>
   <script src="websocket.js"></script>
   <script src="canvas.js"></script>

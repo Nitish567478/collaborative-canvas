@@ -7,7 +7,6 @@ class StateManager {
   }
 
   /* ===== USERS ===== */
-
   addUser(id, name) {
     this.users.set(id, {
       name
@@ -23,7 +22,6 @@ class StateManager {
   }
 
   /* ===== STROKES ===== */
-
   addStroke(stroke) {
     this.strokes.push(stroke);
     this.undoStack.push(stroke);

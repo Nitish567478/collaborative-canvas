@@ -2,9 +2,7 @@ const StateManager = require("./state-manager");
 
 module.exports = function (io) {
   const rooms = {};
-
   const getRoomList = () => Object.keys(rooms);
-
   return {
     join(socket, { roomId, userName }) {
       if (!rooms[roomId]) {
@@ -25,7 +23,6 @@ module.exports = function (io) {
       io.to(roomId).emit("USER_LIST", room.getUserCount());
 
       /* ===== STROKES ===== */
-
       const onStroke = stroke => {
         room.addStroke(stroke);
         io.to(roomId).emit("STROKE_COMMIT", stroke);
@@ -46,7 +43,6 @@ module.exports = function (io) {
       socket.on("REDO", onRedo);
 
       /* ===== LEAVE / DISCONNECT ===== */
-
       const cleanup = () => {
         socket.removeListener("STROKE_COMMIT", onStroke);
         socket.removeListener("UNDO", onUndo);
